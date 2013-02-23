@@ -1,6 +1,6 @@
 var fs      = require("fs");
 var config  = JSON.parse(fs.readFileSync("config.json"));
-var mysql   = require("mysql").createClient({
+var mysql   = require("mysql").createConnection({
 	host: config.mysqlDatabase["host"],
 	user: config.mysqlDatabase["user"],
 	password: config.mysqlDatabase["password"],
@@ -31,7 +31,7 @@ var CourseSection            = require('../models/courseSection.js').CourseSecti
 var Week 					 = require('../models/week.js').Week;
 
 exports.createDB = function(dbName, callback){
-	var mysql   = require("mysql").createClient({
+	var mysql   = require("mysql").createConnection({
 		host: config.mysqlDatabase["host"],
 		user: config.mysqlDatabase["user"],
 		password: config.mysqlDatabase["password"],
@@ -84,7 +84,7 @@ var createTable = function(table, callback){
 }
 
 exports.dropDB = function(dbName, callback){
-	var mysql   = require("mysql").createClient({
+	var mysql   = require("mysql").createConnection({
 		host: config.mysqlDatabase["host"],
 		user: config.mysqlDatabase["user"],
 		password: config.mysqlDatabase["password"],

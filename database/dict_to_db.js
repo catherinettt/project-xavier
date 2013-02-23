@@ -1,6 +1,6 @@
 var	fs = require('fs'),
-	config = JSON.parse(fs.readFileSync('config.json')),
-	text = fs.readFileSync('database/brown_nostem.txt').toString().split('\n'),
+	config = JSON.parse(fs.readFileSync('../config.json')),
+	text = fs.readFileSync('../database/brown_nostem.txt').toString().split('\n'),
 	client = require('redis').createClient(config.dictionaryDB.port, config.dictionaryDB.host),
 	EventEmitter = require('events').EventEmitter;
 
